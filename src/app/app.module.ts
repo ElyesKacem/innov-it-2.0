@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { TemplateComponent } from './template/template.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './profile/profile.component';
+import { PublicationComponent } from './publication/publication.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProfileComponent } from './profile/profile.component';
     InscriptionComponent,
     LoginComponent,
     TemplateComponent,
-    ProfileComponent
+    ProfileComponent,
+    PublicationComponent
   ],
   imports: [
     BrowserModule,
