@@ -6,33 +6,62 @@
     <button class="btn-dialog-close btnClose" mat-button color="warn" (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
   </mat-toolbar>
   <br>
-  <div class="col-xl-8" style="margin-left: auto; margin-right: auto">
+  <div class="" style="margin-left: auto; margin-right: auto"> 
+    <div style="display: flex;align-items:center;">
+      <div>
+        <img src="assets/images/resources/user-avatar.jpg" alt="" style="width: 100px;border: 3px rgb(0, 31, 134) solid;border-radius: 50%;margin-top: 10%">
+
+      </div>
+      <div style="margin-left: 10px;">
+        <h4>Nom prénom</h4>
+        <p>badge</p>
+      </div>
+      
+</div>
     <!-- Account details card-->
-    <div class="card md-4">
+    <div class=" md-4">
 
       <div class="card-body">
-        <form >
+        <form>
           <div class="form-group">
             <input type="text" />
-            <label class="control-label" for="input">Titre</label><i class="mtrl-select"></i>
+            <label style="font-weight: 500; font-size: larger;" class="control-label" for="input">Titre</label><i class="mtrl-select"></i>
           </div>
           <div class="form-group">
             <textarea rows="2" placeholder="Quoi de neuf ?"></textarea>
-            <label class="control-label" for="input">Description</label><i class="mtrl-select"></i>
+            <label style="font-weight: 500; font-size: larger;" class="control-label" for="input">Description</label><i class="mtrl-select"></i>
           </div>
           <div class="form-group">
-            <label> Choisir les 2 images que vous avez fait </label>
-            <input type="file" required="required"/>
-
+           
           </div>
+          <div class="container">
+            <div class="row">
+              
+              <div class="col col-example">
+                <h1>1ère photo</h1>
+                <label> Choisir les 2 images que vous avez fait </label>
+                <input type="file" required="required"/>
+              </div>
 
+              <div class="col col-example">
+                <h1>2ème photo</h1>
+                <label> Choisir les 2 images que vous avez fait </label>
+                <input type="file" required="required"/>
+              </div>
+              
+              <div class="w-100"></div>
+             <br>
+             <br>
+            </div>
+          </div>
 
           <!-- Save changes button-->
-          <div class="text-center">
-            <button class="btn btn-primary" type="submit">Enregistrer</button>
-            <button class="btn btn-danger" type="button" >Retour</button>
+          <div class="text-center" >
+            <button class="btn btn-primary" type="submit">Publier</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-danger" type="button" >Annuler</button>
           </div>
         </form>
+        
       </div>
     </div>
   </div>
