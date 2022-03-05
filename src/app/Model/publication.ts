@@ -3,7 +3,8 @@ export class Publication {
   description?:string;
   username?:string;
   location?:string;
-  image?:Blob;
+  image1?:Blob;
+  image2?:Blob;
   datePublication?:string;
 
 }
