@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-publication',
@@ -6,7 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./publication.component.css']
 })
 export class PublicationComponent implements OnInit {
- @Input() colis?:number;
+
   constructor() { }
 
   ngOnInit(): void {
