@@ -17,4 +17,14 @@ export class AddpublicationComponent implements OnInit {
 /*    this.formGroup.reset();
     */
   }
+
+  handleUpload(event:any) {
+    console.log(event.currentTarget)
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      console.log(reader.result);
+    };
+  }
 }

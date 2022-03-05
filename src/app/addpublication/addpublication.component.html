@@ -22,8 +22,7 @@
           </div>
           <div class="form-group">
             <label> Choisir les 2 images que vous avez fait </label>
-            <input type="file" required="required"/>
-
+            <input type="file" (change)="handleUpload($event)">
           </div>
 
 

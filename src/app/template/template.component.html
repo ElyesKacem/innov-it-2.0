@@ -515,8 +515,8 @@
                     </div>
                   </div>
                 </div><!-- add post new box -->
-                <div class="loadMore">
-            <app-publication></app-publication>
+                <div class="loadMore" *ngFor="let pub of allpublication">
+            <app-publication [publication]="pub"></app-publication>
                 </div>
               </div><!-- centerl meta -->
               <div class="col-lg-3">
