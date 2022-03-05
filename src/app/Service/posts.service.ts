@@ -9,11 +9,15 @@ export class PostsService {
 
   urlPath: string;
   constructor(private http: HttpClient) {
-    this.urlPath = 'http://hackaton.eastus.cloudapp.azure.com/posts';
+    this.urlPath = 'http://hackaton.eastus.cloudapp.azure.com';
   }
 
   getAllPost() {
-    return this.http.get(this.urlPath)
+    return this.http.get(this.urlPath+'/posts')
+  }
+
+  getPostbyUsername(username: string | null | undefined){
+    return this.http.get(this.urlPath+'/postsuser/'+username)
   }
 
   CreatePost(p:Publication)
