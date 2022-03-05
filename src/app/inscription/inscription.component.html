@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 	<title>Winku Social Network Toolkit</title>
-    <link rel="icon" href="assets/images/fav.png" type="image/png" sizes="16x16"> 
+    <link rel="icon" href="assets/images/fav.png" type="image/png" sizes="16x16">
 </head>
 <body>
 <!--<div class="se-pre-con"></div>-->
@@ -24,54 +28,207 @@
 							<span><img src="assets/images/wink.png" alt=""></span>
 						</div>
 						<a href="#" title="" class="folow-me">Follow Us on</a>
-					</div>	
+					</div>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<div class="login-reg-bg">
-					
+
 					<div class="log-reg-area sign">
 						<h2 class="log-title">Register</h2>
+
 							<p>
 								Veuillez saisir vos données
 							</p>
-						<form method="post">
-							<div class="form-group">	
-							  <input type="text" required="required"/>
-							  <label class="control-label" for="input">Nom et prénom</label><i class="mtrl-select"></i>
-							</div>
-							<div class="form-group">	
-							  <input type="text" required="required"/>
-							  <label class="control-label" for="input">Pseudonyme</label><i class="mtrl-select"></i>
-							</div>
-							<div class="form-group">	
-							  <input type="password" required="required"/>
-							  <label class="control-label" for="input">Mot de passe</label><i class="mtrl-select"></i>
-							</div>
-							<div class="form-radio">
-							  <div class="radio">
-								<label>
-								  <input type="radio" name="radio" checked="checked"/><i class="check-box"></i>Homme
-								</label>
-							  </div>
-							  <div class="radio">
-								<label>
-								  <input type="radio" name="radio"/><i class="check-box"></i>Femme
-								</label>
-							  </div>
-							</div>
-							<div class="form-group">	
-							  <input type="text" required="required"/>
-							  <label class="control-label" for="input"><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c29010d05002c">[email&#160;protéger]</a></label><i class="mtrl-select"></i>
-							</div>
-							<div class="checkbox">
-							  <label>
-								<input type="checkbox" checked="checked"/><i class="check-box"></i>Accepter les termes et les conditions ?
-							  </label>
-							</div>
+
+            <form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+
+              <div class="form-group">
+
+
+                <input [ngClass]="{'is-invalid':Username&&Username.errors && Username.touched}" class="form-control"
+                       formControlName="username"
+                       id="Username"
+                       placeholder="Username"
+                       type="text">
+                <i class="mtrl-select"></i>
+                <div *ngIf="Username&&Username.hasError('LoginTaken')"
+                     class="invalid-feedback">
+                  login is taken
+                </div>
+                <div *ngIf="Username&&Username.hasError('required')"
+                     class="invalid-feedback">
+                  login is required
+                </div>
+                <div *ngIf="Username&&Username.hasError('minlength')"
+                     class="invalid-feedback">
+                  login must be at least 6 characters
+                </div>
+
+              </div>
+              <div style="display: flex">
+              <div class="form-group">
+
+                <input [ngClass]="{'is-invalid':password&&password.errors && password.touched}"
+                       class="form-control"
+                       formControlName="password"
+                       id="password"
+                       placeholder="Password"
+                       type="password">
+                <i class="mtrl-select"></i>
+                <div *ngIf="password&&password.hasError('minlength')"
+                     class="invalid-feedback">
+                  Password must be at least 8 characters
+                </div>
+                <div *ngIf="password&&password.hasError('maxlength')"
+                     class="invalid-feedback">
+                  Password must be at most 30 characters
+                </div>
+                <div *ngIf="password&&password.hasError('required')"
+                     class="invalid-feedback">
+                  Password is required
+                </div>
+
+              </div>
+              <div class="form-group">
+
+                <input [ngClass]="{'is-invalid':confirmPassword&&confirmPassword.errors && confirmPassword.touched}"
+                       autocomplete
+                       class="form-control"
+                       formControlName="confirmPassword"
+                       id="confirmPassword"
+                       placeholder="Confirm Password"
+                       type="password">
+                <i class="mtrl-select"></i>
+                <div class="invalid-feedback"
+                     *ngIf="confirmPassword&&confirmPassword.hasError('passwordMismatch')">
+                  Passwords Don't Match
+                </div>
+                <div *ngIf="confirmPassword&&confirmPassword.hasError('minlength')"
+                     class="invalid-feedback">
+                  Password must be at least 8 characters
+                </div>
+                <div *ngIf="confirmPassword&&confirmPassword.hasError('maxlength')"
+                     class="invalid-feedback">
+                  Password must be at most 30 characters
+                </div>
+                <div *ngIf="confirmPassword&&confirmPassword.hasError('required')"
+                     class="invalid-feedback">
+                  Password is required
+                </div>
+              </div>
+              </div>
+              <div class="form-group">
+
+                <input [ngClass]="{'is-invalid':email && email.errors && email.touched}"
+                       class="form-control"
+                       formControlName="email"
+                       id="email"
+                       placeholder="Email"
+                       type="text">
+                <i class="mtrl-select"></i>
+                <div *ngIf="email&&email.hasError('EmailTaken')"
+                     class="invalid-feedback">
+                  Email is taken please enter a valid email address.
+                </div>
+                <div *ngIf="email&&email.hasError('required')"
+                     class="invalid-feedback">
+                  Email is required
+                </div>
+                <div *ngIf="email&&email.hasError('email')"
+                     class="invalid-feedback">
+                  Please enter a valid email address
+                </div>
+
+              </div>
+              <div style="display: flex">
+              <div class="form-group">
+
+                <input [ngClass]="{'is-invalid':Nom&&Nom.errors && Nom.touched}"
+                       class="form-control"
+                       formControlName="Nom"
+                       id="Nom"
+                       placeholder="Nom"
+                       type="text">
+                <i class="mtrl-select"></i>
+                <div *ngIf="Nom&&Nom.hasError('required')"
+                     class="invalid-feedback">
+                  Last Name is required
+                </div>
+
+              </div>
+              <div class="form-group">
+
+                <input [ngClass]="{'is-invalid':Prenom&&Prenom.errors && Prenom.touched}"
+                       class="form-control"
+                       formControlName="Prenom"
+                       id="Prenom"
+                       placeholder="Prenom"
+                       type="text">
+                <i class="mtrl-select"></i>
+                <div *ngIf="Prenom&&Prenom.hasError('required')"
+                     class="invalid-feedback">
+                  First Name is required
+                </div>
+
+              </div>
+              </div>
+              <div class="form-group">
+
+                <input [ngClass]="{'is-invalid':Tel&&Tel.errors && Tel.touched}"
+                       class="form-control"
+                       formControlName="Tel"
+                       id="Tel"
+                       placeholder="Telephone"
+                       type="text">
+                <i class="mtrl-select"></i>
+                <div *ngIf="Tel&&Tel.hasError('required')"
+                     class="invalid-feedback">
+                  Phone Number is required
+                </div>
+                <div *ngIf="Tel&&Tel.hasError('pattern')"
+                     class="invalid-feedback">
+                  Invalide phone number
+                </div>
+
+              </div>
+
+
+
+              <div class="form-radio" >
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="radio"  (change)="setsexe('homme')" value="homme" checked="checked"/><i class="check-box"></i>Male
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" value="femme" (change)="setsexe('femme')"  name="radio"/><i class="check-box"></i>Female
+                  </label>
+                </div>
+              </div>
+
+              <div class="checkbox form-group">
+                <label>
+
+                <input [ngClass]="{'is-invalid':check&&check.errors && check.touched}"
+                       class="checkbox"
+                       formControlName="check"
+                       id="Check"
+                       type="checkbox"/>
+                  <i class="check-box"></i>Accepter les termes et les conditions ?
+                </label>
+
+
+
+
+
+              </div>
+
+
 							<a title="" class="already-have" (click)="goToLink()">J'ai déja un compte</a>
 							<div class="submit-btns">
-								<button class="mtr-btn signup" type="button"><span>Register</span></button>
+								<button class="mtr-btn signup" type="submit"><span>Register</span></button>
 							</div>
 						</form>
 					</div>
@@ -80,10 +237,10 @@
 		</div>
 	</div>
 </div>
-	
+
 	<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.min.js"></script>
 	<script src="js/script.js"></script>
 
-</body>	
+</body>
 
 </html>
