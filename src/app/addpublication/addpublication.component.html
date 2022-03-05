@@ -40,13 +40,13 @@
               <div class="col col-example">
                 <h1>1ère photo</h1>
                 <label> Choisir les 2 images que vous avez fait </label>
-                <input type="file" required="required"/>
+                <input type="file" (change)="handleUpload1($event)" required="required"/>
               </div>
 
               <div class="col col-example">
                 <h1>2ème photo</h1>
                 <label> Choisir les 2 images que vous avez fait </label>
-                <input type="file" required="required"/>
+                <input type="file" (change)="handleUpload2($event)" required="required"/>
               </div>
 
               <div class="w-100"></div>
@@ -57,7 +57,7 @@
 
           <!-- Save changes button-->
           <div class="text-center" >
-            <button class="btn btn-primary" type="submit">Publier</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-primary" (click)="addPub()">Publier</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="btn btn-danger" type="button" >Annuler</button>
           </div>
         </form>

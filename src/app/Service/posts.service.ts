@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Publication} from "../Model/publication";
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +14,12 @@ export class PostsService {
 
   getAllPost() {
     return this.http.get(this.urlPath)
+  }
+
+  CreatePost(p:Publication)
+  {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post(this.urlPath,p,{ headers:headers});
   }
 }
