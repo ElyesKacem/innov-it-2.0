@@ -1,4 +1,5 @@
 export class Utilisateur {
+
   id?: number;
   username?: string;
   password?: string;
@@ -9,6 +10,7 @@ export class Utilisateur {
   sexe?: string;
  imageprofil?:string;
   dateNaissance?:string;
+
  /* ville:string;*/
  /* Gouvernorat:string;*/
   /*role: string;*/
