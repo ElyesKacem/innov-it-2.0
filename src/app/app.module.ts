@@ -10,7 +10,6 @@ import { LoginComponent } from './login/login.component';
 import { TemplateComponent } from './template/template.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {ReactiveFormsModule} from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatRadioModule} from '@angular/material/radio';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './profile/profile.component';
@@ -25,7 +24,9 @@ import {MatButtonModule} from "@angular/material/button";
     AppComponent,
     InscriptionComponent,
     LoginComponent,
-    TemplateComponent
+    TemplateComponent,
+    ProfileComponent,
+    PublicationComponent,AddpublicationComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,12 +34,14 @@ import {MatButtonModule} from "@angular/material/button";
     ReactiveFormsModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    MatRadioModule
+    MatRadioModule,
     AppRoutingModule,
     MatDialogModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

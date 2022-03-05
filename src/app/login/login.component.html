@@ -6,7 +6,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 	<title>Winku Social Network Toolkit</title>
-    <link rel="icon" href="assets/images/fav.png" type="image/png" sizes="16x16"> 
+    <link rel="icon" href="assets/images/fav.png" type="image/png" sizes="16x16">
 </head>
 <body>
 <!--<div class="se-pre-con"></div>-->
@@ -18,13 +18,13 @@
 					<div class="land-meta">
 						<h1>Winku</h1>
 						<p>
-							Winku is free to use for as long as you want with two active projects.
+
 						</p>
 						<div class="friend-logo">
 							<span><img src="assets/images/wink.png" alt=""></span>
 						</div>
 						<a href="#" title="" class="folow-me">Follow Us on</a>
-					</div>	
+					</div>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -34,16 +34,56 @@
 							<p>
 								Veuillez saisir vos données
 							</p>
-						<form method="post">
-							<div class="form-group">	
-							  <input type="text" id="input" required="required"/>
-							  <label class="control-label" for="input">Pseudonyme</label><i class="mtrl-select"></i>
-							</div>
-							<div class="form-group">	
-							  <input type="password" required="required"/>
-							  <label class="control-label" for="input">Mot de passe</label><i class="mtrl-select"></i>
-							</div>
-							<div class="checkbox">
+						<form  [formGroup]="form" (ngSubmit)="submitForm()">
+
+              <div class="form-group">
+
+
+                <input [ngClass]="{'is-invalid':username&&username.errors && username.touched}" class="form-control"
+                       formControlName="username"
+                       id="Username"
+                       placeholder="Username"
+                       type="text">
+                <i class="mtrl-select"></i>
+                <div *ngIf="username&&username.hasError('LoginTaken')"
+                     class="invalid-feedback">
+                  login is taken
+                </div>
+                <div *ngIf="username&&username.hasError('required')"
+                     class="invalid-feedback">
+                  login is required
+                </div>
+                <div *ngIf="username&&username.hasError('minlength')"
+                     class="invalid-feedback">
+                  login must be at least 6 characters
+                </div>
+
+              </div>
+              <div class="form-group">
+
+                <input [ngClass]="{'is-invalid':password&&password.errors && password.touched}"
+                       class="form-control"
+                       formControlName="password"
+                       id="password"
+                       placeholder="Password"
+                       type="password">
+                <i class="mtrl-select"></i>
+                <div *ngIf="password&&password.hasError('minlength')"
+                     class="invalid-feedback">
+                  Password must be at least 8 characters
+                </div>
+                <div *ngIf="password&&password.hasError('maxlength')"
+                     class="invalid-feedback">
+                  Password must be at most 30 characters
+                </div>
+                <div *ngIf="password&&password.hasError('required')"
+                     class="invalid-feedback">
+                  Password is required
+                </div>
+
+              </div>
+
+              <div class="checkbox">
 							  <label>
 								<input type="checkbox" checked="checked"/><i class="check-box"></i>Enregistrer les données
 							  </label>
@@ -51,21 +91,21 @@
 							<a href="#" title="" class="forgot-pwd">Mot de passe oublié?</a>
 							<div class="submit-btns" style="display: flex;Justify-content: space-around;
                             align-items: center;">
-								<button class="mtr-btn signin" type="button"><span>Se connecter</span></button>
+								<button class="mtr-btn signin" type="submit"><span>Se connecter</span></button>
 								<button class="mtr-btn signup" type="button" (click)="goToLink()"><span>Inscription</span></button>
 							</div>
 						</form>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-	
+
 	<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.min.js"></script>
 	<script src="js/script.js"></script>
 
-</body>	
+</body>
 
 </html>
